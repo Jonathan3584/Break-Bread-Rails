@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   before_validation :downcase_email
 
+  has_many :people
+
   validates :password_confirmation, presence: true
   validates :password, confirmation: true, presence: true
 

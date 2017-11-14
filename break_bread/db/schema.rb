@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20171114171633) do
     t.date "gift_holiday_1"
     t.date "gift_holiday_2"
     t.date "gift_holiday_3"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

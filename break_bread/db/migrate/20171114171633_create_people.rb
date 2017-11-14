@@ -8,7 +8,7 @@ class CreatePeople < ActiveRecord::Migration[5.1]
       t.date :gift_holiday_1
       t.date :gift_holiday_2
       t.date :gift_holiday_3
-
+      t.integer :user_id
       t.timestamps
     end
   end
