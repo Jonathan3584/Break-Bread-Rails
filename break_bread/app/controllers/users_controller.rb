@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   # method to create a new user
   def create
-
+      puts('user controller - create')
     @user = User.new(user_params)
     
     if @user.valid?

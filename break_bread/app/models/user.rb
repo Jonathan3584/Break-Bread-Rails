@@ -8,8 +8,8 @@ class User < ApplicationRecord
 
   has_many :people
 
-  validates :password_confirmation, presence: true
-  validates :password, confirmation: true, presence: true
+  validates :password_confirmation, presence: true, on: :create
+  validates :password, confirmation: true, presence: true, on: :create
 
   
   validates :email,
