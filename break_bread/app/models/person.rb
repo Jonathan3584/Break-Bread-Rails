@@ -1,5 +1,5 @@
 class Person < ApplicationRecord
 	belongs_to :user
-	has_many :restaurants
+	has_many :restaurants, dependent: :destroy
 	validates :name, :address, :birth_date
 end
