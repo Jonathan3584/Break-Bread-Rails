@@ -5,6 +5,9 @@ get "/users/validate", to: "users#validate"
   post "/users", to: "users#create"
   post "/login", to: "sessions#create"
 
-  resources :people
+  resources :people do
+  	resources :restaurants, only: [:index, :create, :destroy]
+  	post "/people/:id/restaurants/search", to: "restaurants#search"
+  end
 
 end
