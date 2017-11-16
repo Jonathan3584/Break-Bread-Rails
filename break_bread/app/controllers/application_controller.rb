@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::API
-  before_action :set_current_user
+   def require_token
+    # find the user by the token provided in the params
+    @current_user = User.find_by(:auth_token => params[:auth_token])
 
-  def set_current_user
-  	@current_user = User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def require_user
-  	redirect_to '/login' unless @current_user
+    unless @current_user # if there is not a user with that token
+      # send back an error
+      render status: :unauthorized, :json => {:error => "user not authorized"}
+    end
   end
 end

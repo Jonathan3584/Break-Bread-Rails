@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-
+	
 	def index
 		@restaurants = @person.restaurants
 		render json: @restaurants
@@ -17,6 +17,26 @@ class RestaurantsController < ApplicationController
 	end
 
 	def search
+		# This API call converts the address into usable lat/long for the second API call
+		@address = "6237+prosperity+commons+dr+charlotte+nc+28269"
+		url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{@address}&key=#{ENV['GOOGLE_API']}"
+		results = HTTParty.get(url)
+		@lat = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lat"]
+		@lng = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lng"]
+	
+		# This API call returns the data for the restaurant search
+		newrl = "https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOUR_SQUARE_API_ID']}&client_secret=#{ENV['FOUR_SQUARE_API_SECRET']}&ll=#{@lat},#{@lng}&query=dinner&v=20171111"
+		puts newrl
+		
+		response = HTTParty.get(newrl)
+		parsed_response = JSON.parse(response.body)["response"]["venues"].map do |venue|
+			{ 
+				:name => venue["name"],
+				:address => venue["location"]["formattedAddress"]
+			}
+		end
+		puts parsed_response
+		render json: parsed_response
 	end
 
 	private

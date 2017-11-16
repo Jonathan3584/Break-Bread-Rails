@@ -7,7 +7,7 @@ get "/users/validate", to: "users#validate"
 
   resources :people do
   	resources :restaurants, only: [:index, :create, :destroy]
-  	post "/people/:id/restaurants/search", to: "restaurants#search"
+  	get "/restaurants/search", to: "restaurants#search"
   end
 
 end

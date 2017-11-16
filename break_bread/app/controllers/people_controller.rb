@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
 	end
 	
 	def person_params
-		params.require(:person).permit(:name, :address, :relationship, :birth_date, :gift_holiday_1, :gift_holiday_2, :gift_holiday_3, :user_id)
+		params.require(:person).permit(:name, :address, :relationship, :birth_date, :gift_holiday_1, :gift_holiday_2, :gift_holiday_3, :user_id, :budget)
 	end
 
 end
