@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
-	
+	before_action :set_person
+
 	def index
+		puts @person
 		@restaurants = @person.restaurants
 		render json: @restaurants
 	end
@@ -18,7 +20,11 @@ class RestaurantsController < ApplicationController
 
 	def search
 		# This API call converts the address into usable lat/long for the second API call
-		@address = "6237+prosperity+commons+dr+charlotte+nc+28269"
+		puts "request"
+		puts request.inspect
+		
+		@address = @person.address.sub!(' ', '+')
+		puts @address
 		url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{@address}&key=#{ENV['GOOGLE_API']}"
 		results = HTTParty.get(url)
 		@lat = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lat"]
@@ -42,11 +48,11 @@ class RestaurantsController < ApplicationController
 	private
 
 	def set_person
-		@person = Person.find([params[:person_id]])
+		@person = Person.find(params[:person_id])
 	end
 
 	def restaurant_params
-		params.require(:restaurant).permit(:name, :category, :url, :rating, :photo)
+		params.require(:restaurant).permit(:name, :category, :url, :rating, :photo, :person_id)
 	end
 
 
