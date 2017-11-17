@@ -20,8 +20,7 @@ class RestaurantsController < ApplicationController
 
 	def search
 		# This API call converts the address into usable lat/long for the second API call
-		puts "request"
-		puts request.inspect
+	\
 		
 		@address = @person.address.sub!(' ', '+')
 		puts @address
@@ -31,15 +30,19 @@ class RestaurantsController < ApplicationController
 		@lng = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lng"]
 	
 		# This API call returns the data for the restaurant search
-		newrl = "https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOUR_SQUARE_API_ID']}&client_secret=#{ENV['FOUR_SQUARE_API_SECRET']}&ll=#{@lat},#{@lng}&query=dinner&v=20171111"
+		newrl = "https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOUR_SQUARE_API_ID']}&client_secret=#{ENV['FOUR_SQUARE_API_SECRET']}&ll=#{@lat},#{@lng}&query=sushi&v=20171111"
 		puts newrl
 		
 		response = HTTParty.get(newrl)
 		parsed_response = JSON.parse(response.body)["response"]["venues"].map do |venue|
+			
 			{ 
 				:name => venue["name"],
-				:address => venue["location"]["formattedAddress"]
-			}
+				:category => venue["categories"][0]["name"],
+				:url => venue["url"],
+				:rating => venue["rating"],
+				:photo => "#{venue["categories"][0]["icon"]["prefix"]}" + "#{venue["categories"][0]["icon"]["suffix"]}"
+ 			}
 		end
 		puts parsed_response
 		render json: parsed_response
