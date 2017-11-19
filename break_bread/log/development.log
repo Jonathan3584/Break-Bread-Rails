@@ -6031,3 +6031,2476 @@ Completed 200 OK in 49ms (Views: 0.3ms | ActiveRecord: 32.6ms)
 Completed 200 OK in 327ms (Views: 6.2ms | ActiveRecord: 11.5ms)
 
 
+Started GET "/users/validate?auth_token=VPR4tXDvvNkwZGYKk3nQ8Epa" for 127.0.0.1 at 2017-11-19 11:57:07 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"VPR4tXDvvNkwZGYKk3nQ8Epa"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "VPR4tXDvvNkwZGYKk3nQ8Epa"], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 21.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-11-19 11:57:17 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (5.5ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["updated_at", "2017-11-19 16:57:17.477038"], ["id", 1]]
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 96ms (Views: 0.3ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 11:57:17 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.8ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 26ms (Views: 11.4ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 11:57:21 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 29ms (Views: 14.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/people/3/restaurants/search" for 127.0.0.1 at 2017-11-19 11:57:22 -0500
+Processing by RestaurantsController#search as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 1194ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 11:57:32 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 11:57:36 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:01:30 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:01:30 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:03:22 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:03:22 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:03:43 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:03:43 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:05:07 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:05:07 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:06:23 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:06:23 -0500
+  [1m[36mPerson Load (0.8ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Processing by UsersController#validate as HTML
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.8ms)
+
+
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:07:12 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:07:12 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:15:49 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:15:49 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:22:00 -0500
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:22:00 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Processing by PeopleController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:26:10 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:26:10 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:27:20 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:27:20 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:27:51 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:27:51 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:28:22 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:28:22 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:28:46 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:28:46 -0500
+  [1m[36mPerson Load (0.7ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Processing by UsersController#validate as HTML
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.7ms)
+
+
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:29:00 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:29:01 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:29:19 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:29:19 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:30:51 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:30:51 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:33:34 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:33:34 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.8ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:34:03 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:34:03 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (0.7ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:36:07 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:36:07 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:36:37 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:36:37 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:37:59 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:37:59 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:39:10 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:39:10 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:42:46 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:42:46 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:46:04 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:46:04 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:52:45 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:52:45 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.6ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:53:34 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:53:34 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (1.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.2ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 12:53:51 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 12:53:51 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:01:05 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:01:05 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:02:44 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:02:44 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:04:17 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:04:17 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (1.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:04:32 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:04:32 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:08:22 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:08:22 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:15:28 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:15:28 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/people/4" for 127.0.0.1 at 2017-11-19 13:15:31 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 4]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:15:40 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:15:40 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:18:34 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:18:49 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:18:49 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/people/6" for 127.0.0.1 at 2017-11-19 13:18:52 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 6]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 6]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:18:52 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 13:26:58 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Sheila Ellsaesser", "address"=>"6237 Prosperity Commons Dr Charlotte NC", "relationship"=>"Mother", "birth_date"=>"1957-09-11", "budget"=>"200", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Sheila Ellsaesser"], ["address", "6237 Prosperity Commons Dr Charlotte NC"], ["relationship", "Mother"], ["birth_date", "1957-09-11"], ["user_id", 1], ["created_at", "2017-11-19 18:26:58.636357"], ["updated_at", "2017-11-19 18:26:58.636357"], ["budget", 200]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 13:26:58 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Sheila Ellsaesser", "address"=>"6237 Prosperity Commons Dr Charlotte NC", "relationship"=>"Mother", "birth_date"=>"1957-09-11", "budget"=>"200", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Sheila Ellsaesser"], ["address", "6237 Prosperity Commons Dr Charlotte NC"], ["relationship", "Mother"], ["birth_date", "1957-09-11"], ["user_id", 1], ["created_at", "2017-11-19 18:26:58.647019"], ["updated_at", "2017-11-19 18:26:58.647019"], ["budget", 200]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:28:36 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 13:30:13 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Richard Nixon", "address"=>"Some cemetery", "relationship"=>"20th percentile president", "birth_date"=>"1913-01-09", "budget"=>"15", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Richard Nixon"], ["address", "Some cemetery"], ["relationship", "20th percentile president"], ["birth_date", "1913-01-09"], ["user_id", 1], ["created_at", "2017-11-19 18:30:13.232152"], ["updated_at", "2017-11-19 18:30:13.232152"], ["budget", 15]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 13:30:16 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Richard Nixon", "address"=>"Some cemetery", "relationship"=>"20th percentile president", "birth_date"=>"1913-01-09", "budget"=>"15", "user_id"=>1}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Richard Nixon"], ["address", "Some cemetery"], ["relationship", "20th percentile president"], ["birth_date", "1913-01-09"], ["user_id", 1], ["created_at", "2017-11-19 18:30:16.446801"], ["updated_at", "2017-11-19 18:30:16.446801"], ["budget", 15]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:34:07 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 13:35:12 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Wednesday", "address"=>"81 Pilling St Brooklyn NY", "relationship"=>"Dog", "birth_date"=>"2016-05-05", "budget"=>"15", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Wednesday"], ["address", "81 Pilling St Brooklyn NY"], ["relationship", "Dog"], ["birth_date", "2016-05-05"], ["user_id", 1], ["created_at", "2017-11-19 18:35:12.743911"], ["updated_at", "2017-11-19 18:35:12.743911"], ["budget", 15]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 13:35:15 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Wednesday", "address"=>"81 Pilling St Brooklyn NY", "relationship"=>"Dog", "birth_date"=>"2016-05-05", "budget"=>"15", "user_id"=>1}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Wednesday"], ["address", "81 Pilling St Brooklyn NY"], ["relationship", "Dog"], ["birth_date", "2016-05-05"], ["user_id", 1], ["created_at", "2017-11-19 18:35:15.191531"], ["updated_at", "2017-11-19 18:35:15.191531"], ["budget", 15]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:35:20 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:35:20 -0500
+  [1m[36mPerson Load (1.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/people/10" for 127.0.0.1 at 2017-11-19 13:36:03 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 10]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 10]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:36:03 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/people/11" for 127.0.0.1 at 2017-11-19 13:36:04 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 11]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 11]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:36:04 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/people/12" for 127.0.0.1 at 2017-11-19 13:36:08 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 12]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 12]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:36:08 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/people/7" for 127.0.0.1 at 2017-11-19 13:36:23 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 7]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 7]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:36:23 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 13:37:21 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Wednesday", "address"=>"81 Pilling St Brooklyn NY 11207", "relationship"=>"Dog", "birth_date"=>"2016-05-05", "budget"=>"15", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Wednesday"], ["address", "81 Pilling St Brooklyn NY 11207"], ["relationship", "Dog"], ["birth_date", "2016-05-05"], ["user_id", 1], ["created_at", "2017-11-19 18:37:21.845264"], ["updated_at", "2017-11-19 18:37:21.845264"], ["budget", 15]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:37:27 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/people/13" for 127.0.0.1 at 2017-11-19 13:37:31 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 13]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 13]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:37:31 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 13:38:08 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 13:38:08 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:38:12 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 14:38:12 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:39:56 -0500
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 14:39:56 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/validate?auth_token=ofsgZknCji2BP3Lsu34ehPTF" for 127.0.0.1 at 2017-11-19 14:40:30 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"ofsgZknCji2BP3Lsu34ehPTF"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "ofsgZknCji2BP3Lsu34ehPTF"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-11-19 14:40:35 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>""}}
+Unpermitted parameter: :user
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+Completed 400 Bad Request in 12ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2017-11-19 14:40:36 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"name"=>"", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"", "email"=>""}}
+Unpermitted parameter: :user
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+Completed 400 Bad Request in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-11-19 14:42:27 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["updated_at", "2017-11-19 19:42:27.147318"], ["id", 1]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 88ms (Views: 0.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:42:27 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:43:30 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:43:30 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:44:16 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:44:16 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:44:38 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:44:38 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:46:22 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:46:22 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:46:30 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:46:30 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.4ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:49:59 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:49:59 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:55:41 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:55:41 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:56:02 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:56:02 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (0.9ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.9ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:57:05 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:57:05 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.5ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 14:58:40 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 14:58:40 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 1.2ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:08:40 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:08:40 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:09:36 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:09:36 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:09:51 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:09:51 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:32:33 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:32:33 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:33:07 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:33:07 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:33:28 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:33:28 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:33:38 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:33:38 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.8ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:33:44 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:33:44 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.0ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 1.0ms)
+
+
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:33:50 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:33:50 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:35:30 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:35:30 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.1ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:35:44 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:35:44 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:39:16 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:39:16 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:45:54 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:47:47 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:47:47 -0500
+  [1m[36mPerson Load (0.6ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 15:47:58 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:48:00 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:48:49 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:48:49 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  Parameters: {"person_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mPerson Load (0.9ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:49:08 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:49:08 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mPerson Load (3.6ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:51:33 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:51:33 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"person_id"=>"3"}
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (1.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:52:35 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:52:35 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 15:52:46 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 15:52:46 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:46:34 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:46:34 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"person_id"=>"3"}
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (1.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:49:26 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:49:26 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 16:49:28 -0500
+  
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:49:28 -0500
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+Processing by UsersController#validate as HTML
+  
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 16:49:43 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:49:43 -0500
+  
+Processing by UsersController#validate as HTML
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:50:06 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:50:06 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:50:58 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:50:58 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"person_id"=>"3"}
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:51:03 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:51:03 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (1.7ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Completed 200 OK in 9ms (Views: 3.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:51:04 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:51:04 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.6ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mRestaurant Load (1.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:55:51 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:55:51 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:56:16 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:56:16 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mRestaurant Load (1.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 1.7ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:56:59 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:56:59 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"person_id"=>"3"}
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:58:14 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:58:14 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:58:35 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:58:35 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:59:16 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:59:16 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 16:59:57 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 16:59:57 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:01:18 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:01:18 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:01:40 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:01:40 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"person_id"=>"3"}
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:01:48 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:01:48 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"person_id"=>"3"}
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.6ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 2.4ms | ActiveRecord: 1.4ms)
+
+
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:01:50 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:01:50 -0500
+  
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:01:57 -0500
+  
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:01:57 -0500
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+Processing by UsersController#validate as HTML
+  
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:02:19 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:02:19 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:02:38 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:02:38 -0500
+  [1m[36mPerson Load (0.8ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mRestaurant Load (0.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.7ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:02:40 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+  
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:02:40 -0500
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:04:24 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:04:24 -0500
+Processing by RestaurantsController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"person_id"=>"3"}
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mRestaurant Load (1.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:04:26 -0500
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:04:26 -0500
+Processing by UsersController#validate as HTML
+  
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:07:35 -0500
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:07:35 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:07:37 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:07:37 -0500
+  
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:08:13 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:08:13 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (1.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 15ms (Views: 2.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:08:13 -0500
+  
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:08:13 -0500
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+Processing by UsersController#validate as HTML
+  
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:09:05 -0500
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:09:05 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:09:22 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:09:22 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mRestaurant Load (1.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 1.6ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:09:38 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:09:38 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mPerson Load (1.8ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 8ms (Views: 2.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:09:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:09:41 -0500
+  
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:12:55 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:12:55 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:13:56 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/people/8" for 127.0.0.1 at 2017-11-19 17:14:01 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 8]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 8]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:14:01 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:14:09 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:16:05 -0500
+Started GET "/people/www.jacksny.com/restaurants" for 127.0.0.1 at 2017-11-19 17:16:05 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  
+ActionController::RoutingError (No route matches [GET] "/people/www.jacksny.com/restaurants"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:17:53 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:17:53 -0500
+  Parameters: {"person_id"=>"3"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:18:46 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:18:46 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (1.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:18:54 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:19:31 -0500
+Processing by PeopleController#index as HTML
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:19:31 -0500
+  [1m[36mPerson Load (0.6ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Processing by UsersController#validate as HTML
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.6ms)
+
+
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:19:42 -0500
+Started GET "/users/validate?auth_token=pECzpbX6Vmvhi3pNPQBPaXvj" for 127.0.0.1 at 2017-11-19 17:19:42 -0500
+Processing by PeopleController#index as HTML
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"pECzpbX6Vmvhi3pNPQBPaXvj"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "pECzpbX6Vmvhi3pNPQBPaXvj"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/people/3" for 127.0.0.1 at 2017-11-19 17:19:44 -0500
+Processing by PeopleController#destroy as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 3]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "restaurants" WHERE "restaurants"."id" = $1[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:19:44 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people/3/restaurants" for 127.0.0.1 at 2017-11-19 17:19:51 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"3"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Person with 'id'=3):
+  
+app/controllers/restaurants_controller.rb:54:in `set_person'
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:19:55 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-11-19 17:20:08 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "cgzajaB8JMA3dSxaLz4k34VW"], ["updated_at", "2017-11-19 22:20:08.466030"], ["id", 1]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 80ms (Views: 0.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:20:08 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-11-19 17:20:41 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"jonathan.ellsaesser@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "jonathan.ellsaesser@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "auth_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["updated_at", "2017-11-19 22:20:41.147782"], ["id", 1]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 84ms (Views: 0.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:20:41 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 17:21:11 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Alicia Archer", "address"=>"81 Pilling St Brooklyn NY 11207", "relationship"=>"Fiancee", "birth_date"=>"1988-05-05", "budget"=>"1000", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Alicia Archer"], ["address", "81 Pilling St Brooklyn NY 11207"], ["relationship", "Fiancee"], ["birth_date", "1988-05-05"], ["user_id", 1], ["created_at", "2017-11-19 22:21:11.428537"], ["updated_at", "2017-11-19 22:21:11.428537"], ["budget", 1000]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:21:11 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:21:15 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people/14/restaurants/search" for 127.0.0.1 at 2017-11-19 17:21:19 -0500
+Processing by RestaurantsController#search as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Completed 200 OK in 1251ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/people/restaurants" for 127.0.0.1 at 2017-11-19 17:22:06 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"people"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Person with 'id'=people):
+  
+app/controllers/restaurants_controller.rb:54:in `set_person'
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:22:08 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/people/13/restaurants" for 127.0.0.1 at 2017-11-19 17:22:28 -0500
+Processing by RestaurantsController#create as */*
+  Parameters: {"restaurant"=>{"name"=>"Jack's Sushi Parlor", "category"=>"Discount Sushi", "url"=>"www.jacksny.com", "rating"=>2.4, "photo"=>"https://media.timeout.com/images/102917922/image.jpg"}, "person_id"=>"13"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Person with 'id'=13):
+  
+app/controllers/restaurants_controller.rb:54:in `set_person'
+Started POST "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:22:39 -0500
+Processing by RestaurantsController#create as */*
+  Parameters: {"restaurant"=>{"name"=>"Jack's Sushi Parlor", "category"=>"Discount Sushi", "url"=>"www.jacksny.com", "rating"=>2.4, "photo"=>"https://media.timeout.com/images/102917922/image.jpg"}, "person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:22:45 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:22:48 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 17:22:48 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mRestaurant Load (2.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+Completed 200 OK in 7ms (Views: 1.5ms | ActiveRecord: 2.6ms)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:22:59 -0500
+Processing by RestaurantsController#create as */*
+  Parameters: {"restaurant"=>{"name"=>"Jack's Sushi Parlor", "category"=>"Discount Sushi", "url"=>"www.jacksny.com", "rating"=>2.4, "photo"=>"https://media.timeout.com/images/102917922/image.jpg"}, "person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:23:39 -0500
+Processing by RestaurantsController#create as */*
+  Parameters: {"restaurant"=>{"name"=>"Jack's Sushi Parlor", "category"=>"Discount Sushi", "url"=>"www.jacksny.com", "rating"=>2.4, "photo"=>"https://media.timeout.com/images/102917922/image.jpg", "person_id"=>14}, "person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "category", "url", "rating", "photo", "person_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jack's Sushi Parlor"], ["category", "Discount Sushi"], ["url", "www.jacksny.com"], ["rating", 2.4], ["photo", "https://media.timeout.com/images/102917922/image.jpg"], ["person_id", 14], ["created_at", "2017-11-19 22:23:39.232684"], ["updated_at", "2017-11-19 22:23:39.232684"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:23:43 -0500
+Processing by RestaurantsController#index as HTML
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 17:23:43 -0500
+  Parameters: {"person_id"=>"14"}
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mRestaurant Load (0.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:25:58 -0500
+Processing by RestaurantsController#create as */*
+  Parameters: {"restaurant"=>{"name"=>"Jimmy's Pasta Depot", "category"=>"Italian joint", "url"=>"http://www.jimmyspizzastanwood.com/", "rating"=>2.1, "photo"=>"https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2F%2Fcdn-image.myrecipes.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fimage%2Frecipes%2Fck%2F07%2F12%2Ffarfalle-ck-1559239-x.jpg%3Fitok%3DWSpsZ2Gz&w=2200&q=70", "person_id"=>14}, "person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerson Load (0.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "category", "url", "rating", "photo", "person_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Jimmy's Pasta Depot"], ["category", "Italian joint"], ["url", "http://www.jimmyspizzastanwood.com/"], ["rating", 2.1], ["photo", "https://imagesvc.timeincapp.com/v3/mm/image?url=http%3A%2F%2Fcdn-image.myrecipes.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fimage%2Frecipes%2Fck%2F07%2F12%2Ffarfalle-ck-1559239-x.jpg%3Fitok%3DWSpsZ2Gz&w=2200&q=70"], ["person_id", 14], ["created_at", "2017-11-19 22:25:58.088729"], ["updated_at", "2017-11-19 22:25:58.088729"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:26:05 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/9/restaurants" for 127.0.0.1 at 2017-11-19 17:26:06 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"9"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 9]]
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:26:08 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:26:09 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:27:06 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:27:14 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:27:16 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:27:47 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:28:07 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/people/" for 127.0.0.1 at 2017-11-19 17:44:13 -0500
+Processing by PeopleController#create as HTML
+  Parameters: {"person"=>{"name"=>"Wednesday", "address"=>"81 Pilling St Brooklyn NY 11207", "relationship"=>"Dog", "birth_date"=>"2016-05-05", "budget"=>"20", "user_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "address", "relationship", "birth_date", "user_id", "created_at", "updated_at", "budget") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Wednesday"], ["address", "81 Pilling St Brooklyn NY 11207"], ["relationship", "Dog"], ["birth_date", "2016-05-05"], ["user_id", 1], ["created_at", "2017-11-19 22:44:13.947204"], ["updated_at", "2017-11-19 22:44:13.947204"], ["budget", 20]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 17:44:13 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:44:43 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:50:08 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 17:50:08 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 17:54:04 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 17:54:04 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+
+
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/people/14/restaurants/search" for 127.0.0.1 at 2017-11-19 17:57:19 -0500
+Processing by RestaurantsController#search as HTML
+  Parameters: {"person_id"=>"14"}
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 17:57:19 -0500
+Processing by UsersController#validate as HTML
+  [1m[36mPerson Load (1.1ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 1043ms (Views: 1.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/people/14/restaurants/search" for 127.0.0.1 at 2017-11-19 17:58:41 -0500
+Processing by RestaurantsController#search as HTML
+  Parameters: {"person_id"=>"14"}
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 17:58:41 -0500
+  [1m[36mPerson Load (0.5ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 1135ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people/14/restaurants/search" for 127.0.0.1 at 2017-11-19 18:04:03 -0500
+Processing by RestaurantsController#search as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 18:04:03 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 1271ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/people/restaurants" for 127.0.0.1 at 2017-11-19 18:04:10 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"people"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Person with 'id'=people):
+  
+app/controllers/restaurants_controller.rb:54:in `set_person'
+Started GET "/people" for 127.0.0.1 at 2017-11-19 18:04:13 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 18:04:16 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 9ms (Views: 3.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/people/14/restaurants/search" for 127.0.0.1 at 2017-11-19 18:04:18 -0500
+Processing by RestaurantsController#search as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Completed 200 OK in 1003ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people/people/restaurants" for 127.0.0.1 at 2017-11-19 18:04:42 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"people"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Person with 'id'=people):
+  
+app/controllers/restaurants_controller.rb:54:in `set_person'
+Started GET "/people" for 127.0.0.1 at 2017-11-19 18:04:46 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/people" for 127.0.0.1 at 2017-11-19 18:04:56 -0500
+Processing by PeopleController#index as HTML
+  [1m[36mPerson Load (0.4ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 18:04:56 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/14/restaurants" for 127.0.0.1 at 2017-11-19 18:04:58 -0500
+Processing by RestaurantsController#index as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."person_id" = $1[0m  [["person_id", 14]]
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/people/14/restaurants/search" for 127.0.0.1 at 2017-11-19 18:05:11 -0500
+Processing by RestaurantsController#search as HTML
+  Parameters: {"person_id"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+Started GET "/users/validate?auth_token=TkqLfDQGxiuPANA3Cpwd8Egc" for 127.0.0.1 at 2017-11-19 18:05:12 -0500
+Processing by UsersController#validate as HTML
+  Parameters: {"auth_token"=>"TkqLfDQGxiuPANA3Cpwd8Egc"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."auth_token" = $1 LIMIT $2[0m  [["auth_token", "TkqLfDQGxiuPANA3Cpwd8Egc"], ["LIMIT", 1]]
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Completed 200 OK in 907ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+
+
