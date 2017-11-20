@@ -1,8 +1,9 @@
 class PeopleController < ApplicationController
 	before_action :set_person, only: [:show, :update, :destroy]
+	before_action :require_token
 	
 	def index
-		@people = Person.where(user_id = params[:user_id])
+		@people = @current_user.people
 		render json: @people
 	end
 	
