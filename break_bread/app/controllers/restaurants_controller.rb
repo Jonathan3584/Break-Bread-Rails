@@ -26,11 +26,11 @@ class RestaurantsController < ApplicationController
 		puts @address
 		url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{@address}&key=#{ENV['GOOGLE_API']}"
 		results = HTTParty.get(url)
-		@lat = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lat"]
-		@lng = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lng"]
+		@lat = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lat"].round(1)
+		@lng = JSON.parse(results.body)["results"][0]["geometry"]["location"]["lng"].round(1)
 	
 		# This API call returns the data for the restaurant search
-		newrl = "https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOUR_SQUARE_API_ID']}&client_secret=#{ENV['FOUR_SQUARE_API_SECRET']}&ll=#{@lat},#{@lng}&query=sushi&v=20171111"
+		newrl = "https://api.foursquare.com/v2/venues/search?client_id=#{ENV['FOUR_SQUARE_API_ID']}&client_secret=#{ENV['FOUR_SQUARE_API_SECRET']}&ll=#{@lat},#{@lng}&query=restaurant&categoryId=4d4b7105d754a06374d81259&price=4&v=20171111"
 		puts newrl
 		
 		response = HTTParty.get(newrl)
